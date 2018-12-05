@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 (http://www.altova.com) by v920453 (Telecom) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cencosud.cl/types" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="RequestDTO">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string"/>
+				<xs:element name="dto">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="barCode" type="barcodeType"/>
+						</xs:sequence>
+						<xs:attribute name="class" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RuleResponseDTO">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="response">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="properties" type="xs:string"/>
+							<xs:element name="applicationKey" type="xs:string"/>
+							<xs:element name="Codigo" type="barcodeType" minOccurs="0"/>
+							<xs:element name="Precio" type="xs:decimal" minOccurs="0"/>
+							<xs:element name="Descripcion" type="xs:string" minOccurs="0"/>
+							<xs:element name="Unidad" type="xs:string"/>
+							<xs:element name="ReturnCode" type="xs:string"/>
+							<xs:element name="ReturnMessage" type="xs:string"/>
+						</xs:sequence>
+						<xs:attribute name="class" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="barcodeType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="12"/>
+			<xs:fractionDigits value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
